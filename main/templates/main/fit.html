@@ -1,0 +1,75 @@
+
+{% extends "main/home.html" %}
+{% block content %}
+<head>
+        <!-- Plotly.js -->
+         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      </head>
+
+
+
+
+<body>
+    <div id="myDiv"> 
+        <p1 style="color:blue">Forecast</p1>
+        <div id="mydiv1"> 
+        </div>
+      
+        <div id="mydiv2">
+        </div>
+    </div>
+    
+    <script >
+
+        var predictions = [{% for y in preds %}'{{ y }}',{% endfor %}]
+        var predictions_lower = [{% for y in preds_lower %}'{{ y }}',{% endfor %}]
+        var predictions_upper = [{% for y in preds_upper %}'{{ y }}',{% endfor %}]
+        var pred_dates = [{% for d in pred_dates %}'{{ d }}',{% endfor %}]
+        var actuals = [{% for a in actuals %}'{{ a }}',{% endfor %}]
+        var date_stamps = [{% for d in dates %}'{{ d }}',{% endfor %}]
+        var trace1 = {
+                    y: actuals,
+                    x: date_stamps,
+                    mode: 'lines',
+                    type : 'scatter',
+                    name:'actuals',
+                    };
+
+        var trace2 = {
+                    y: predictions,
+                    x: pred_dates,
+                    mode: 'lines',
+                    type : 'scatter',
+                    name:'y',
+                    };
+        var trace3 = {
+                    y: predictions_upper,
+                    x: pred_dates,
+                    mode: 'lines',
+                    type : 'scatter',
+                    name :'yhat_upper',
+                    };
+
+        var trace4 = {
+                    y: predictions_lower,
+                    x: pred_dates,
+                    mode: 'lines',
+                    type :'scatter',
+                    name:'yhat_lower',
+                    };
+        var data = [  trace1,trace2,trace3,trace4 ];
+        var layout = {
+            width: 1500,
+            height: 500,
+            
+        };
+        Plotly.newPlot('mydiv2', data, layout);
+   
+
+ 
+    </script>
+  </body>
+
+{% endblock %}
+
+

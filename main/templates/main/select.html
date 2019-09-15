@@ -1,0 +1,24 @@
+{% extends "main/home.html" %}
+{% block content %}
+<form method ='post' enctype="multipart/form-data">
+{% csrf_token %}
+<!-- <div  id="mydiv1">
+        <label for="img">Select the file</label>
+    <input type="file" name="uploadfile" id="img" />
+
+
+</div> -->
+<div style ="width:800px;padding-top:0px" id ="mydiv2">
+    <h5> Please enter the following details </h6>
+
+    <l1 > Company name</l1>
+    <input type="text"name="company_name">
+    <!-- <l1>Number of forecasts</l1>
+    <input type="number"name="number_of_forecasts"> -->
+ 
+</div>
+<button type="submit">Next</button>
+
+
+</form.>
+    {% endblock %}

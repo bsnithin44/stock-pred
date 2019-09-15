@@ -1,0 +1,45 @@
+
+{% extends "main/home.html" %}
+{% block content %}
+<head>
+        <!-- Plotly.js -->
+         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      </head>
+
+<body>
+    <div id="myDiv"> 
+        <div id="mydiv1"> 
+        </div>
+        <div id="mydiv2">
+        </div>
+    </div>
+    
+    <script >
+
+        var actuals : [{% for x in y %}'{{ x }}',{% endfor %}]
+        var dates = [ {% for x in dates %}'{{ x }}',{% endfor %}]
+        actuals
+        var trace1 = {
+                    // y: actuals,
+                    // x: dates,
+                    y: [1,2,3,4,5],
+                    x: [1,2,3,4,5],
+                    mode: 'lines',
+                    type : 'scatter',
+                    name:'actuals'
+                    };
+  
+        var data = [ trace1 ];
+        var layout = {
+            width: 1500,
+            height: 500,
+            
+        };
+        Plotly.newPlot('mydiv2', data, layout);
+
+    </script>
+  </body>
+
+{% endblock %}
+
+

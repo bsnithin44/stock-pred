@@ -16,14 +16,13 @@
     
     <script >
 
-        var actuals : [{% for x in y %}'{{ x }}',{% endfor %}]
+        var actuals : [ {% for x in y %}'{{ x }}',{% endfor %} ]
         var dates = [ {% for x in dates %}'{{ x }}',{% endfor %}]
-        actuals
         var trace1 = {
-                    // y: actuals,
-                    // x: dates,
-                    y: [1,2,3,4,5],
-                    x: [1,2,3,4,5],
+                    y: actuals,
+                    x: dates,
+                    // y: [1,2,3,4,5],
+                    // x: [1,2,3,4,5],
                     mode: 'lines',
                     type : 'scatter',
                     name:'actuals'

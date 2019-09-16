@@ -11,15 +11,15 @@
             <a href="#" class="brand-logo">   Stock prediction</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {% if user.is_authenticated %}
-                    <li><a href="http://127.0.0.1:8000">Home</a></li>
-                    <li><a href="http://127.0.0.1:8000/select">Select</a></li>
-                    <li><a href="http://127.0.0.1:8000/fit">Forecast</a></li>
-                    <li><a href="http://127.0.0.1:8000/visualise">Visualise</a></li>
-                    <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
+                    <li><a href="">Home</a></li>
+                    <li><a href="/select">Select</a></li>
+                    <li><a href="/fit">Forecast</a></li>
+                    <li><a href="/visualise">Visualise</a></li>
+                    <li><a href="/logout">Logout</a></li>
     
                 {% else %}
-                    <li><a href="http://127.0.0.1:8000/register">Register</a></li>
-                    <li><a href="http://127.0.0.1:8000/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
                 {% endif %}
             </ul>
             </div>

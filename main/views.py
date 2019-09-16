@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import table_a
+# from .models import table_a
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
@@ -8,7 +8,6 @@ from django.core.files.storage import FileSystemStorage
 from fbprophet import Prophet
 import pandas as pd
 import json,requests
-from scipy.signal import find_peaks
 from datetime import timedelta
 
 def get_data(company_name='MSFT',interval='none'):
@@ -122,9 +121,7 @@ def visualise(request):
     return render(request,'main/visualise.html',
     {
         'y':df.open.values,
-        'dates':df.ds.dt.date,
-
-
+        'dates':df.index.values,
         }
                 )
 
